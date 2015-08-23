@@ -1,0 +1,32 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>vdo</title>
+<!-- 1. skin -->
+<link rel="stylesheet" href="//releases.flowplayer.org/6.0.3/skin/functional.css">
+ 
+<!-- 2. jquery library - required for video tag based installs -->
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+ 
+<!-- 3. flowplayer -->
+<script src="//releases.flowplayer.org/6.0.3/flowplayer.min.js"></script>
+</head>
+
+<body>
+<div class="flowplayer"
+     data-fullscreen="true"
+     data-native_fullscreen="true"
+     data-ratio="0.4167">
+ 
+   <video>
+<source type="application/x-mpegurl" src="http://103.14.10.11:1935/liveedge/307947436081_600/playlist.m3u8">
+<source type="application/x-mpegurl" src="http://203.151.133.7:1935/live/ch3_1/playlist.m3u8">
+<source type="application/x-mpegurl" src="http://edge9.psitv.tv:1935/liveedge/307947436081_600/playlist.m3u8">
+   </video>
+ 
+</div>
+
+</body>
+</html>

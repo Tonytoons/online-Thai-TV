@@ -40,8 +40,7 @@
 	            $.ui.setSideMenuWidth('260px');
 	            $.ui.launch();
 	        });
-	    </script>		
-		
+	    </script>
     </head>
 
     <body id="afui">
@@ -99,9 +98,14 @@
 	            </header>
 	            <div class="wrapper">
 	                <div class="container">
+	                    <script src="//releases.flowplayer.org/6.0.3/flowplayer.min.js"></script>
 	                    <div id="two-columns" class="grid-container" style="display:block;">
-	                         <h1>player</h1>
-	                    </div>
+						<div class="flowplayer" data-fullscreen="true"  data-native_fullscreen="true" data-ratio="0.4167">
+							 <video controls="true" style="width:100%;min-width:280px;height:95%;min-height: 200px;" autoplay="autoplay">
+							      <source type="application/x-mpegurl" src="http://203.151.133.7:1935/live/ch3_1/playlist.m3u8"></source>
+							 </video>
+						</div>
+						</div>
 	                </div>
 	            </div>
 	        </div>
@@ -215,5 +219,6 @@
 		
 		
 		</script>
+		
     </body>
 </html>
