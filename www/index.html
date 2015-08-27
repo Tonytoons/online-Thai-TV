@@ -98,14 +98,9 @@
 	            </header>
 	            <div class="wrapper">
 	                <div class="container">
-	                    <script src="//releases.flowplayer.org/6.0.3/flowplayer.min.js"></script>
-	                    <div id="two-columns" class="grid-container" style="display:block;">
-						<div class="flowplayer" data-fullscreen="true"  data-native_fullscreen="true" data-ratio="0.4167">
-							 <video controls="true" style="width:100%;min-width:280px;height:95%;min-height: 200px;" autoplay="autoplay">
-							      <source type="application/x-mpegurl" src="http://203.151.133.7:1935/live/ch3_1/playlist.m3u8"></source>
-							 </video>
-						</div>
-						</div>
+	                   <div id="play-video" class="grid-container" style="display:block;">
+	                   	
+	                   </div> 
 	                </div>
 	            </div>
 	        </div>
@@ -157,7 +152,7 @@
             	if(jsonData.status == 200 && jsonData.total > 0){
 	            	$.each(jsonData.items, function (index, items) {	            		
 	            		html += '<li>';
-	                    html += '<a href="#page3" data-cate="'+items.cate_en+'" data-id="'+items.id+'">';
+	                    html += '<a href="#page3" onclick="goPlay('+items.id+');" data-cate="'+items.cate_en+'" data-id="'+items.id+'">';
 	                    html += '<img src="'+items.img+'" />';
 	                    html += '</a>';	                                
 	                    html += '<p>'+items.name+'</p>';  
@@ -184,7 +179,7 @@
             	if(jsonData.status == 200 && jsonData.total > 0){
 	            	$.each(jsonData.items, function (index, items) {	            		
 	            		html += '<li>';
-	                    html += '<a href="#page3" data-cate="'+items.cate_en+'" data-id="'+items.id+'">';
+	                    html += '<a href="#page3" onclick="goPlay('+items.id+');" data-cate="'+items.cate_en+'" data-id="'+items.id+'">';
 	                    html += '<img src="'+items.img+'" />';
 	                    html += '</a>';	                                
 	                    html += '<p>'+items.name+'</p>';
@@ -213,6 +208,24 @@
             	}            	
             	if(html){            		
             		$('#menu-list').append(html);
+            	}           	
+            },'json');
+		}
+		
+		function goPlay(id)
+		{
+			var html = '';
+			var apiURL = 'http://heresclips.com/thaitv/getdata.php';
+            var data = {'type':'play','id':id};
+            $.post(apiURL, data,function( jsonData ) {	
+            	console.log(jsonData);
+            	if(jsonData.status == 200){ console.log(jsonData);
+	            	
+					html = ' <iframe id="iframe_player" src="http://videoplayer.vodobox.com/vodobox_player.php?vid=http%3A%2F%2F203.151.133.7%3A1935%2Flive%2Fch3_1%2Fplaylist.m3u8&img=&play=auto" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>';
+					
+            	}            	
+            	if(html){            		
+            		$('#play-video').html(html);
             	}           	
             },'json');
 		}	
