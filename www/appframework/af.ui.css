@@ -3388,7 +3388,20 @@ color:white;
     text-shadow:0 -1px 0 #000;
 }
 
-
+.btn-link{
+	width: 30%;
+    display: inline-block;
+    height: auto;
+    font-size: 18px;
+    background-color: #;
+    color: #fff;
+    background-color: #449d44;
+    border-color: #398439;
+    text-align: center;
+    padding: 10px 0px;
+    border-radius: 5px;
+    margin: 10px 2% 0px 0px;
+}
 
 
 
